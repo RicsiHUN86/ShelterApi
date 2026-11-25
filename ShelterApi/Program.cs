@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
+using ShelterApi.Models;
+
 namespace ShelterApi
 {
     public class Program
@@ -12,6 +16,8 @@ namespace ShelterApi
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<AnimalshelterContext>(options =>
+                options.UseMySQL(builder.Configuration.GetConnectionString("Mysql")));
 
             var app = builder.Build();
 
@@ -19,6 +25,7 @@ namespace ShelterApi
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.MapScalarApiReference();
             }
 
             app.UseHttpsRedirection();

@@ -20,6 +20,5 @@ public partial class Animal
 
     public Guid ShelterId { get; set; }
 
-    [JsonIgnore]
     public virtual Shelter Shelter { get; set; } = null!;
 }

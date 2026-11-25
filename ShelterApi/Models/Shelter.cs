@@ -16,7 +16,5 @@ public partial class Shelter
 
     public DateTime? RegTime { get; set; }
 
-    [JsonIgnore]
-
     public virtual ICollection<Animal> Animals { get; set; } = new List<Animal>();
 }

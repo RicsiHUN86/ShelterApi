@@ -71,9 +71,9 @@ namespace ShelterApi.Controllers
 
                 return StatusCode(404, new { message = "Nincs találat", result = animals });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(new { message = ex.Message });
             }
         }
 
