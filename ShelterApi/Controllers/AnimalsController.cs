@@ -17,7 +17,7 @@ namespace ShelterApi.Controllers
         }
 
         [HttpPost("newAnimal")]
-        public async Task<IActionResult> NewAnimal([FromBody] NewAnimalDTO newAnimalDto)
+        public async Task<IActionResult> NewAnimal(NewAnimalDTO newAnimalDto)
         {
             try
             {
@@ -55,7 +55,6 @@ namespace ShelterApi.Controllers
             {
                 return BadRequest();
             }
-
         }
 
         [HttpGet("allAnimal")]
@@ -79,7 +78,7 @@ namespace ShelterApi.Controllers
         }
 
         [HttpGet("byId")]
-        public async Task<IActionResult> AnimalById([FromQuery] Guid id)
+        public async Task<IActionResult> AnimalById(Guid id)
         {
             try
             {
@@ -99,7 +98,7 @@ namespace ShelterApi.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> UpdateAnimal([FromQuery] Guid id, UpdateAnimalDTO updateAnimalDto)
+        public async Task<IActionResult> UpdateAnimal(Guid id, UpdateAnimalDTO updateAnimalDto)
         {
             try
             {
@@ -141,7 +140,7 @@ namespace ShelterApi.Controllers
         }
 
         [HttpDelete("deleteAnimal")]
-        public async Task<IActionResult> DeleteAnimal([FromQuery] Guid id)
+        public async Task<IActionResult> DeleteAnimal(Guid id)
         {
             try
             {
